@@ -1,0 +1,183 @@
+@import "./resets";
+@import "./variables";
+@import "./scrollbar";
+
+.headbar {
+  width: 100%;
+  height: 55px;
+  border-bottom: 2px solid $primary-white;
+  background-color: $gamigo-primary;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    border-bottom: 2px solid $primary-white;
+    overflow: visible;
+  }
+
+  margin-bottom: 20px;
+}
+.logo {
+  background-image: url(../../src/assets/gamigo.png);
+  background-size: 210px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  .title {
+    margin: 0 1rem;
+  }
+
+  .area-top {
+    background: red;
+    width: 100vw;
+    margin: 1rem 0;
+  }
+
+  .area-middle {
+    width: 100vw;
+    height: 350px;
+    background: blue;
+    display: flex;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: pink;
+      width: 280px;
+      margin: auto;
+      h2 {
+        margin: 0.5rem 0;
+      }
+      .vs-wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        & > * {
+          width: $btn-size;
+          height: $btn-size;
+          background: orangered;
+          margin: 1rem 0;
+          align-items: center;
+          display: inline-flex;
+          justify-content: center;
+        }
+        span {
+          background-image: url(../../src/assets/versus.png);
+          background-size: 50px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          margin: auto;
+          position: relative;
+        }
+        div {
+          border: thin solid $primary-text;
+        }
+      }
+    }
+  }
+  .area-bottom {
+    white-space: nowrap;
+    width: 100vw;
+    height: 400px;
+    background: green;
+    display: grid;
+    grid-template-columns: repeat(3, $btn-size);
+    grid-template-rows: repeat(4, $btn-size);
+    grid-gap: $btn-size/3;
+    place-items: center;
+    grid-template-areas:
+      "rock . paper"
+      ". scissors ."
+      "points-p1 points-p1 points-p1"
+      "points-p2 points-p2 points-p2";
+    align-content: center;
+    justify-content: center;
+    & > * {
+      width: $btn-size;
+      height: $btn-size;
+      background: orangered;
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+    }
+    .points-p2 {
+      grid-area: points-p2 / span 3;
+    }
+    .points-p1 {
+      grid-area: points-p1 / span 3;
+    }
+    .rock {
+      grid-area: rock;
+      &::after {
+        content: "";
+        background-image: url(../../src/assets/rock-paper-scissors.png);
+        background-size: 252px;
+        background-repeat: no-repeat;
+        background-position: -160px -10px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: -15px;
+        padding: 15px;
+        top: -5px;
+        cursor: pointer;
+      }
+    }
+    .paper {
+      grid-area: paper;
+      &::after {
+        content: "";
+        background-image: url(../../src/assets/rock-paper-scissors.png);
+        background-size: 252px;
+        background-repeat: no-repeat;
+        background-position: -40px -100px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: -20px;
+        padding: 20px;
+        cursor: pointer;
+      }
+    }
+    .scissors {
+      grid-area: scissors;
+      &::after {
+        content: "";
+        background-image: url(../../src/assets/rock-paper-scissors.png);
+        background-size: 252px;
+        background-repeat: no-repeat;
+        background-position: 0px 10px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: -10px -20px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+    }
+    .points {
+      margin-top: 2rem;
+      width: 80vw;
+    }
+  }
+}

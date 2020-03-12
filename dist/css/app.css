@@ -1,0 +1,284 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+}
+
+body {
+  font-family: Arial;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+span {
+  font-size: 2rem;
+}
+
+body::-webkit-scrollbar {
+  width: 0.7rem;
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #f90;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+}
+
+.headbar {
+  width: 100%;
+  height: 55px;
+  border-bottom: 2px solid #fff;
+  background-color: #fbbb21;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.headbar::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  border-bottom: 2px solid #fff;
+  overflow: visible;
+}
+
+.logo {
+  background-image: url(../../src/assets/gamigo.png);
+  background-size: 210px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.container .title {
+  margin: 0 1rem;
+}
+
+.container .area-top {
+  background: red;
+  width: 100vw;
+  margin: 1rem 0;
+}
+
+.container .area-middle {
+  width: 100vw;
+  height: 350px;
+  background: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .area-middle__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: pink;
+  width: 280px;
+  margin: auto;
+}
+
+.container .area-middle__wrapper h2 {
+  margin: 0.5rem 0;
+}
+
+.container .area-middle__wrapper .vs-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .area-middle__wrapper .vs-wrapper > * {
+  width: 70px;
+  height: 70px;
+  background: orangered;
+  margin: 1rem 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .area-middle__wrapper .vs-wrapper span {
+  background-image: url(../../src/assets/versus.png);
+  background-size: 50px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: auto;
+  position: relative;
+}
+
+.container .area-middle__wrapper .vs-wrapper div {
+  border: thin solid #333;
+}
+
+.container .area-bottom {
+  white-space: nowrap;
+  width: 100vw;
+  height: 400px;
+  background: green;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (70px)[3];
+      grid-template-columns: repeat(3, 70px);
+  -ms-grid-rows: (70px)[4];
+      grid-template-rows: repeat(4, 70px);
+  grid-gap: 23.33333px;
+  place-items: center;
+      grid-template-areas: "rock . paper" ". scissors ." "points-p1 points-p1 points-p1" "points-p2 points-p2 points-p2";
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .area-bottom > * {
+  width: 70px;
+  height: 70px;
+  background: orangered;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .area-bottom .points-p2 {
+  grid-area: points-p2 / span 3;
+}
+
+.container .area-bottom .points-p1 {
+  grid-area: points-p1 / span 3;
+}
+
+.container .area-bottom .rock {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: rock;
+}
+
+.container .area-bottom .rock::after {
+  content: "";
+  background-image: url(../../src/assets/rock-paper-scissors.png);
+  background-size: 252px;
+  background-repeat: no-repeat;
+  background-position: -160px -10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: -15px;
+  padding: 15px;
+  top: -5px;
+  cursor: pointer;
+}
+
+.container .area-bottom .paper {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: paper;
+}
+
+.container .area-bottom .paper::after {
+  content: "";
+  background-image: url(../../src/assets/rock-paper-scissors.png);
+  background-size: 252px;
+  background-repeat: no-repeat;
+  background-position: -40px -100px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: -20px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.container .area-bottom .scissors {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: scissors;
+}
+
+.container .area-bottom .scissors::after {
+  content: "";
+  background-image: url(../../src/assets/rock-paper-scissors.png);
+  background-size: 252px;
+  background-repeat: no-repeat;
+  background-position: 0px 10px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: -10px -20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.container .area-bottom .points {
+  margin-top: 2rem;
+  width: 80vw;
+}
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,39 @@
+Challenge: "Rock-Paper-Scissors"
+
+Description:
+Build a game, where two players with different strategies are playing against each other.
+- Rock beats scissors
+- Paper beats rock
+- Scissors beats paper
+
+Implement two players:
+Player A: chooses paper every time
+Player B: makes a random choice every time
+ 
+The players will compete 100 times against each other.
+As result we would like to know, who wins more often?
+ 
+An example result would look like this:
+"Player A wins 31 of 100 games"
+"Player B wins 37 of 100 games"
+"Tie: 32 of 100 games"
+"Winner is: Player B  (37 to 31 wins)"
+
+Criteria:
+- If both players choose the same, it’s a tie
+- (optional) Save games and results of a round to (mysql) database
+- Build the UI as visualized on the mockup (only the dark gray and the vs. element)
+- Feel free enhance the UI
+- The three buttons on the bottom are for player A to choose what to set
+- The other two buttons are too show the won rounds so far
+- The UI will adapt to smaller/bigger window sizes
+- There will be a "start game" screen at the beginning
+- When the last round has been finished the results are shown and a new game can be started
+- A new round can be started without a reload
+- The color schema should adapt the gamigo group colors
+- No frameworks have been used for coding (exception jQuery for Ajax and/or Sizzle for element selection)
+- (optional) The code is well tested with a testing framework of you choice.
+
+You can make use of free assets or create some by your own. We want to review the code and run the game by ourself.
+The programming language should be html/css, javascript and php.
+You can use any IDE and build tools of your choice.
