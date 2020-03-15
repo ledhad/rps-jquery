@@ -266,7 +266,7 @@ body::-webkit-scrollbar-thumb {
 .container .area-bottom .scissors::after {
   content: "";
   background-image: url(../../src/assets/rock-paper-scissors.png);
-  background-size: 252px;
+  background-size: 245px;
   background-repeat: no-repeat;
   background-position: 0px 10px;
   position: relative;

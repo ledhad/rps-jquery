@@ -5,7 +5,6 @@
 .headbar {
   width: 100%;
   height: 55px;
-  border-bottom: 2px solid $primary-white;
   background-color: $gamigo-primary;
   position: relative;
   z-index: 2;
@@ -18,8 +17,6 @@
     border-bottom: 2px solid $primary-white;
     overflow: visible;
   }
-
-  margin-bottom: 20px;
 }
 .logo {
   background-image: url(../../src/assets/gamigo.png);
@@ -36,6 +33,8 @@
   z-index: 2;
 }
 .container {
+  padding-top: 1rem;
+  background-color: $secondary-white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +45,6 @@
   }
 
   .area-top {
-    background: red;
     width: 100vw;
     margin: 1rem 0;
   }
@@ -54,15 +52,13 @@
   .area-middle {
     width: 100vw;
     height: 350px;
-    background: blue;
     display: flex;
 
     &__wrapper {
+      @extend .card;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: pink;
-      width: 280px;
       margin: auto;
       h2 {
         margin: 0.5rem 0;
@@ -75,7 +71,6 @@
         & > * {
           width: $btn-size;
           height: $btn-size;
-          background: orangered;
           margin: 1rem 0;
           align-items: center;
           display: inline-flex;
@@ -89,17 +84,40 @@
           margin: auto;
           position: relative;
         }
-        div {
-          border: thin solid $primary-text;
+
+        .choice-p2 {
+          &::after {
+            content: "?";
+            font-size: 4rem;
+          }
+        }
+        .choice-p1 {
+          &::before {
+            content: "";
+            background-color: $primary-text;
+            width: $btn-size;
+            height: $btn-size;
+            position: absolute;
+            border-radius: 50%;
+            // opacity: 0.5;
+          }
+          &::after {
+            content: "";
+            background-color: $primary-white;
+            width: 0.8 * $btn-size;
+            height: 0.8 * $btn-size;
+            border-radius: 50%;
+            z-index: 2;
+          }
         }
       }
     }
   }
   .area-bottom {
+    margin: 1rem 0;
     white-space: nowrap;
     width: 100vw;
     height: 400px;
-    background: green;
     display: grid;
     grid-template-columns: repeat(3, $btn-size);
     grid-template-rows: repeat(4, $btn-size);
@@ -115,7 +133,6 @@
     & > * {
       width: $btn-size;
       height: $btn-size;
-      background: orangered;
       align-items: center;
       display: inline-flex;
       justify-content: center;
@@ -126,47 +143,41 @@
     .points-p1 {
       grid-area: points-p1 / span 3;
     }
+    .rps-block {
+      &::after {
+        opacity: 0.7;
+      }
+    }
     .rock {
       grid-area: rock;
       &::after {
         content: "";
-        background-image: url(../../src/assets/rock-paper-scissors.png);
-        background-size: 252px;
+        background-image: url(../../src/assets/rock.png);
+        background-size: 95%;
         background-repeat: no-repeat;
-        background-position: -160px -10px;
+        background-position: 0px 0px;
         position: relative;
         width: 100%;
         height: 100%;
-        margin: -15px;
-        padding: 15px;
+        margin: -10px -20px;
+        padding: 10px 20px;
         top: -5px;
         cursor: pointer;
+      }
+      &:hover {
+        &::after {
+          background-image: url(../../src/assets/rock-active.png);
+        }
       }
     }
     .paper {
       grid-area: paper;
       &::after {
         content: "";
-        background-image: url(../../src/assets/rock-paper-scissors.png);
-        background-size: 252px;
+        background-image: url(../../src/assets/paper.png);
+        background-size: 95%;
         background-repeat: no-repeat;
-        background-position: -40px -100px;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        margin: -20px;
-        padding: 20px;
-        cursor: pointer;
-      }
-    }
-    .scissors {
-      grid-area: scissors;
-      &::after {
-        content: "";
-        background-image: url(../../src/assets/rock-paper-scissors.png);
-        background-size: 252px;
-        background-repeat: no-repeat;
-        background-position: 0px 10px;
+        background-position: 0px -10px;
         position: relative;
         width: 100%;
         height: 100%;
@@ -174,10 +185,56 @@
         padding: 10px 20px;
         cursor: pointer;
       }
+      &:hover {
+        &::after {
+          background-image: url(../../src/assets/paper-active.png);
+        }
+      }
+    }
+    .scissors {
+      grid-area: scissors;
+      &::after {
+        content: "";
+        background-image: url(../../src/assets/scissors.png);
+        background-size: 95%;
+        background-repeat: no-repeat;
+        background-position: 0px -10px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: -10px -20px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      &:hover {
+        &::after {
+          background-image: url(../../src/assets/scissors-active.png);
+        }
+      }
     }
     .points {
+      @extend .card;
       margin-top: 2rem;
       width: 80vw;
     }
+
+    .rps-jquery {
+      &::after {
+        transition: 0.1s;
+        background-size: 98%;
+        margin: -13px -23px;
+        padding: 13px 23px;
+        opacity: 0.9;
+      }
+    }
+  }
+  .card {
+    width: #{"min(80vw, #{1.56*$min-card-width})"};
+    min-width: $min-card-width;
+    background: rgba($primary-white, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1),
+      0 0 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
   }
 }

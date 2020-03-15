@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec babel-node src/js/index.js",
-    "build": "webpack-dev-server",
+    "build": "webpack-dev-server --open",
     "build:prod": "webpack -p"
   },
   "keywords": [],
