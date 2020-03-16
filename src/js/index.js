@@ -8,6 +8,4 @@ $(".rps-block").hover(function() {
 
 //handling of button in top right corner
 
-// console.log(player1);
-//Game sequence
 game();

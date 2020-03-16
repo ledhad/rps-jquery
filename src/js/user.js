@@ -13,10 +13,8 @@ export class Player {
   incMatchUps() {
     this.matchUps += 1;
   }
-  getPoints() {
-    return this.points;
-  }
-  getMatchUps() {
-    return this.matchUps;
+  reset() {
+    this.points = 0;
+    this.matchUps = 0;
   }
 }
