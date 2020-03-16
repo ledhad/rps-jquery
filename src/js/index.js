@@ -1,14 +1,13 @@
 import "../scss/app.scss";
+import { game } from "./gameHandler";
 
-import $ from "jquery";
-
-console.log("Hello index.js jquery handler used with webpack");
-
-// Init
-
+//animations for the rps choices
 $(".rps-block").hover(function() {
   $(this).toggleClass("rps-jquery");
 });
 
-let $myVar = 23;
-$(".points-p1").text("Opponent has " + $myVar + " points");
+//handling of button in top right corner
+
+// console.log(player1);
+//Game sequence
+game();

@@ -88,7 +88,23 @@
         .choice-p2 {
           &::after {
             content: "?";
-            font-size: 4rem;
+            font-size: 5rem;
+            animation: bounce 2s infinite;
+          }
+        }
+        @keyframes bounce {
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translateY(0);
+          }
+          60% {
+            transform: translateY(-10px);
+          }
+          20% {
+            transform: translateY(-10px);
           }
         }
         .choice-p1 {
@@ -99,13 +115,14 @@
             height: $btn-size;
             position: absolute;
             border-radius: 50%;
-            // opacity: 0.5;
+            opacity: 0.2;
           }
           &::after {
             content: "";
             background-color: $primary-white;
             width: 0.8 * $btn-size;
             height: 0.8 * $btn-size;
+            position: absolute;
             border-radius: 50%;
             z-index: 2;
           }
@@ -145,7 +162,14 @@
     }
     .rps-block {
       &::after {
+        transition: opacity 2s ease-out;
         opacity: 0.7;
+      }
+    }
+    .rps-block--active {
+      &::after {
+        transition: opacity 2s ease-out;
+        opacity: 1;
       }
     }
     .rock {
