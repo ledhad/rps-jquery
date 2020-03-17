@@ -9,7 +9,7 @@ module.exports = {
   entry: "./src/js/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/",
+    // publicPath: "/",
     filename: "bundle.js"
   },
   module: {
@@ -35,7 +35,12 @@ module.exports = {
       //HTML index.html
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: {
+          loader: "html-loader",
+          options: {
+            attrs: ["img:src"]
+          }
+        }
       },
       //ASSETS
       {
@@ -72,9 +77,5 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery"
     })
-    // ,
-    // new CleanWebpackPlugin({
-    //   cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, "/dist")]
-    // })
   ]
 };

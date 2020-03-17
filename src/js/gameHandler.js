@@ -1,18 +1,15 @@
 import { Player } from "./user";
+import { toggle, initResumeBtn, destroyResultMsgs } from "./buttonHandler";
 
 export function game() {
   let player1 = new Player(); //Player B
   let player2 = new Player(); //Player A
-
   let rounds = 0;
-  let numberMatchUps = 5;
+  let numberMatchUps = 1;
+
   $(".rps-block").addClass("rps-block--active");
   update(player1, player2, rounds);
-
-  let result = handleRound(player1, player2, rounds, numberMatchUps);
-  if (result) {
-    console.log("match up done");
-  }
+  handleRound(player1, player2, rounds, numberMatchUps);
 }
 
 function update(player1, player2, rounds) {
@@ -60,6 +57,14 @@ function calculate(player1, player2) {
 }
 
 function handleRound(player1, player2, rounds, numberMatchUps) {
+  $(".start-btn").click(function() {
+    console.log("startbtn clicked");
+    //resets
+    rounds = 0;
+    reseter(player1, player2, rounds);
+    console.log("player1.points =", player1.points);
+    console.log("player2.points =", player2.points);
+  });
   $(".rps-block").click(function() {
     let rpsChoice = $(this)
       .attr("class")
@@ -82,6 +87,7 @@ function handleRound(player1, player2, rounds, numberMatchUps) {
         $(".choice-p1").toggleClass("choice-p1--active");
 
         rounds++;
+
         console.log(rounds);
         update(player1, player2, rounds);
         resolve();
@@ -99,16 +105,22 @@ function handleRound(player1, player2, rounds, numberMatchUps) {
           resultsP2,
           numberMatchUps
         );
+        showResults(winnerMsg, tieMsg);
 
-        //database - opt
+        //database (opt)
 
         //resets
         rounds = 0;
-        player1.reset();
-        player1.reset();
-        update(player1, player2, rounds);
+        reseter(player1, player2, rounds);
       }
     });
+  });
+
+  //handle click auto
+  $(".auto-btn").click(function() {
+    destroyResultMsgs();
+    $(".auto-btn").addClass("auto-btn--active");
+    autoMode(player1, player2, rounds, numberMatchUps);
   });
 }
 
@@ -169,3 +181,97 @@ function messages(resultsP1, resultsP2, numberMatchUps) {
 
   return msg;
 }
+
+function showResults(winnerMsg, tieMsg) {
+  let $divMsg = $("<div class='resultMsgs'></div>");
+  $(".start-screen")
+    .append($divMsg)
+    .css("height", "500px");
+  $(".resultMsgs").append(
+    "<h3>" + winnerMsg + "</h3>",
+    "<h3>" + tieMsg + "</h3>"
+  );
+  toggle();
+  initResumeBtn();
+}
+
+function reseter(player1, player2, rounds) {
+  player1.reset();
+  player2.reset();
+  update(player1, player2, rounds);
+}
+
+function autoMode(player1, player2, rounds, numberMatchUps) {
+  //block everything
+  $(".rps-block").removeClass("rps-block--active");
+  $(".rps-block").css("pointer-events", "none");
+  $(".rules-btn").css("pointer-events", "none");
+  //play the entire game
+  console.log("mode auto");
+  rounds = 0;
+  reseter(player1, player2, rounds);
+  let choices = ["paper", "scissors", "rock"];
+  for (let i = 0; i < numberMatchUps; i++) {
+    let ranInt = Math.floor(Math.random() * 3);
+    player1.setChoice(choices[ranInt]);
+    calculate(player1, player2);
+    update(player1, player2, rounds);
+    rounds++;
+  }
+  let resultsP1 = player1.points; //PB
+  let resultsP2 = player2.points; // PA
+  //display scores
+  let { winnerMsg, tieMsg } = messages(resultsP1, resultsP2, numberMatchUps);
+  showResults(winnerMsg, tieMsg);
+  //unblock everything
+  $(".auto-btn").removeClass("auto-btn--active");
+  $(".rps-block").addClass("rps-block--active");
+  $(".rps-block").css("pointer-events", "auto");
+  $(".rules-btn").css("pointer-events", "auto");
+  console.log("fin auto");
+}
+
+function autoModeStyled(player1, player2, rounds, numberMatchUps) {
+  //block everything
+  $(".rps-block").removeClass("rps-block--active");
+  $(".rps-block").css("pointer-events", "none");
+  $(".rules-btn").css("pointer-events", "none");
+  //play the entire game
+  console.log("mode auto");
+  rounds = 0;
+  reseter(player1, player2, rounds);
+  let choices = ["paper", "scissors", "rock"];
+  for (let i = 0; i < numberMatchUps; i++) {
+    let ranInt = Math.floor(Math.random() * 3);
+    player1.setChoice(choices[ranInt]);
+    calculate(player1, player2);
+    update(player1, player2, rounds);
+    rounds++;
+  }
+  let resultsP1 = player1.points; //PB
+  let resultsP2 = player2.points; // PA
+  //display scores
+  let { winnerMsg, tieMsg } = messages(resultsP1, resultsP2, numberMatchUps);
+  showResults(winnerMsg, tieMsg);
+  //unblock everything
+  $(".auto-btn").removeClass("auto-btn--active");
+  $(".rps-block").addClass("rps-block--active");
+  $(".rps-block").css("pointer-events", "auto");
+  $(".rules-btn").css("pointer-events", "auto");
+  console.log("fin auto");
+}
+
+//  let promise = new Promise(resolve => {
+//    setTimeout(() => {
+//      $(".rps-block").toggleClass("rps-block--active");
+//      $(".rps-block").css("pointer-events", "auto");
+//      $(".choice-p2").toggleClass("choice-p2--active");
+//      $(".choice-p1").toggleClass("choice-p1--active");
+
+//      rounds++;
+
+//      console.log(rounds);
+//      update(player1, player2, rounds);
+//      resolve();
+//    }, 1500);
+//  });

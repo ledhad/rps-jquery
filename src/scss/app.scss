@@ -3,7 +3,7 @@
 @import "./scrollbar";
 
 .headbar {
-  width: 100%;
+  width: 100vw;
   height: 55px;
   background-color: $gamigo-primary;
   position: relative;
@@ -19,6 +19,7 @@
   }
 }
 .logo {
+  width: 100vw;
   background-image: url(../../src/assets/gamigo.png);
   background-size: 210px;
   background-position: top center;
@@ -33,6 +34,7 @@
   z-index: 2;
 }
 .container {
+  width: 100vw;
   padding-top: 1rem;
   background-color: $secondary-white;
   display: flex;
@@ -41,7 +43,7 @@
   position: relative;
   text-align: center;
   .title {
-    margin: 0 1rem;
+    padding: 0 1rem;
   }
 
   .area-top {
@@ -269,13 +271,133 @@
       }
     }
   }
-  .card {
-    width: #{"min(80vw, #{1.56*$min-card-width})"};
-    min-width: $min-card-width;
-    background: rgba($primary-white, 0.9);
+}
+
+.btn-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+
+  .rules-btn,
+  .auto-btn {
+    top: 0;
+    position: sticky;
+
+    margin-top: 0.2rem;
+  }
+  .rules-btn {
+    margin-right: 1rem;
+    order: 1;
+  }
+  .auto-btn {
+    order: 0;
+    margin-left: 0.5rem;
+  }
+  .auto-btn--active {
+    background-color: red;
+    cursor: default;
+    opacity: 1;
+    pointer-events: none;
+  }
+}
+
+.screen-container--active {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  background-color: rgba($primary-text, 0.8);
+  .start-screen {
+    margin-top: 9vh;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 85vw;
+    height: 450px;
+    background: $primary-white;
     border-radius: 10px;
     box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1),
       0 0 1rem rgba(0, 0, 0, 0.1);
     overflow: hidden;
+
+    h2 {
+      margin: 2rem 0;
+    }
+    span {
+      background-image: url(../../src/assets/rules.png);
+      background-size: 90%;
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: contain;
+      position: relative;
+      width: 100%;
+      height: 270px;
+    }
+    .buttons-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .resume-btn {
+      margin: 2rem 0;
+      width: 12rem;
+    }
+    .start-btn {
+      margin-top: 0.5rem;
+      width: 12rem;
+    }
+    .resultMsgs {
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      h3 {
+        margin: 1rem 0;
+      }
+    }
+  }
+}
+.screen-container {
+  visibility: hidden;
+  display: none;
+}
+
+.card {
+  width: #{"min(80vw, #{1.56*$min-card-width})"};
+  min-width: $min-card-width;
+  background: rgba($primary-white, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.1), 0 0 1rem rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.btn {
+  z-index: 10;
+  height: 2.2rem;
+  width: 4rem;
+  border: 0.2em solid rgba($gamigo-primary, 0.8);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: $primary-white;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
+  background-color: $primary-text;
+  opacity: 0.6;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
   }
 }

@@ -6,16 +6,26 @@
       name="viewport"
       content="width=device-width, initial-scale=0.86, maximum-scale=3.0, minimum-scale=0.86"
     />
+    <link rel="icon" href="img/favicon-16x16.png" />
     <title>Gamigo RPS</title>
   </head>
   <body>
-    <!-- <button class="rules">?</button>
-    <div class="start-screen">
-      <div class="rules">
-        <h2>Rules of the Game</h2>
-        <img src="./assets/rules.png" alt="rules of rock paper scissors" />
-      </div> -->
+    <div class="btn-container">
+      <button class="rules-btn btn">?</button>
+      <button class="auto-btn btn">auto</button>
     </div>
+
+    <div class="welcome-rules-screen screen-container--active">
+      <div class="start-screen">
+        <h2>Rules of the Game</h2>
+        <span class="rules-img"></span>
+        <div class="buttons-wrapper">
+          <button class="start-btn btn">Start Game !</button>
+          <button class="resume-btn btn">Resume Game</button>
+        </div>
+      </div>
+    </div>
+
     <div class="headbar"></div>
     <div class="logo"></div>
     <div class="container">
@@ -37,10 +47,8 @@
       </div>
 
       <div class="area-bottom">
-        <div class="points points-p2">
-        </div>
-        <div class="points points-p1">
-        </div>
+        <div class="points points-p2"></div>
+        <div class="points points-p1"></div>
         <div class="rps-block rock"></div>
         <div class="rps-block paper"></div>
         <div class="rps-block scissors"></div>
