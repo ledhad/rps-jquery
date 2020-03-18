@@ -5,7 +5,6 @@ import "../assets/favicon-16x16.png"; //favicon, I did not manage to export it d
 import { handleButtons } from "./buttonHandler";
 import { handleRound } from "./gameHandler";
 import { Player } from "./user";
-
 //Creating the state for the game and lauching the game
 function game() {
   //create a state

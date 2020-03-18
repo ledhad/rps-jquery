@@ -88,7 +88,7 @@ function requestResolver(player1, player2, rounds, numberMatchUps) {
   if (inputValid) {
     numberMatchUps = parseInt(input);
     update(player1, player2, rounds);
-    $(".number-round").append("<span>" + numberMatchUps + "</span>");
+
     //return the updated number of match ups
     return numberMatchUps;
   }
@@ -107,7 +107,23 @@ export function handleRound({
   $(".auto-btn").css("pointer-events", "none");
   $(".rps-block").css("pointer-events", "none");
   let autoReMatch = false;
+  let reqResolver = false;
   update(player1, player2, rounds);
+
+  $(".set-rematch-btn").on("click", () => {
+    autoReMatch = false;
+    $(".start-screen").css({ height: "450px" });
+
+    //update DOM
+    initResumeBtn();
+    //resets before starting the game
+    rounds = 0;
+    resetter(player1, player2, rounds);
+
+    //updating DOM
+    update(player1, player2, rounds);
+    $(".number-round span:nth-child(2)").remove();
+  });
 
   $(".start-btn").click(function() {
     //Ask the user (only once) for a specific amount of rounds to play
@@ -118,7 +134,7 @@ export function handleRound({
         //checking for the enter key
         $(document).on("keypress", function(e) {
           if (e.which == 13) {
-            let reqResolver = requestResolver(
+            reqResolver = requestResolver(
               player1,
               player2,
               rounds,
@@ -132,7 +148,7 @@ export function handleRound({
         });
         //checking for click on the button
         $(".enter-btn").on("click", function() {
-          let reqResolver = requestResolver(
+          reqResolver = requestResolver(
             player1,
             player2,
             rounds,
@@ -146,6 +162,7 @@ export function handleRound({
         });
       });
       promise.then(() => {
+        $(".number-round").append("<span>" + numberMatchUps + "</span>");
         $(".rules-btn").css("pointer-events", "auto");
         $(".auto-btn").css("pointer-events", "auto");
         toggle(".popup-screen");

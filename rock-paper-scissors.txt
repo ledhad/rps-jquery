@@ -42,5 +42,3 @@ a faire
 
 - (optional) Save games and results of a round to (mysql) database
 - (optional) The code is well tested with a testing framework of you choice.
-- The UI will adapt to smaller/bigger window sizes
-- faire un meilleur message de fin

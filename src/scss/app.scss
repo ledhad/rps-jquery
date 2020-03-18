@@ -434,7 +434,6 @@
 .screen-container--active {
   position: absolute;
   display: flex;
-  align-items: flex-start;
   justify-content: center;
   width: 100vw;
   height: 100vh;
@@ -444,7 +443,7 @@
     margin-top: 9vh;
     display: flex;
     align-items: flex-start;
-    align-content: center;
+    align-content: flex-start;
     justify-content: center;
     flex-wrap: wrap;
     width: #{"min(85vw, #{2.4*$min-card-width})"};
@@ -456,15 +455,12 @@
     overflow: hidden;
 
     h2 {
-      margin: 2rem 0;
+      margin: 1rem 0;
     }
     .rules-img {
       background-image: url(../../src/assets/rules.png);
       background-size: 90%;
       background-repeat: no-repeat;
-      background-position: center top;
-      background-size: contain;
-      position: relative;
       width: 100%;
       height: 270px;
     }
@@ -494,6 +490,35 @@
         height: 3rem;
       }
     }
+    .rematch-btn-container {
+      width: #{"min(85vw, #{2.4*$min-card-width})"};
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: end;
+      .set-rematch-btn {
+        margin: 4px 4px;
+        z-index: 10;
+        height: 2.2rem;
+        width: 2.2rem;
+        border: none;
+        text-decoration: none;
+        color: $primary-white;
+        text-align: center;
+        transition: all 0.2s;
+        background-color: unset;
+        background-image: url(../../src/assets/set-rematch-btn.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        cursor: pointer;
+        transition: transform 0.5s ease-in-out;
+        &:hover {
+          opacity: 1;
+          transform: rotate(-360deg);
+        }
+      }
+    }
+
     .resultMsgs {
       width: 100%;
       height: 50px;
