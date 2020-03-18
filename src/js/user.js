@@ -1,3 +1,4 @@
+//simple player class
 export class Player {
   constructor() {
     this.points = 0;

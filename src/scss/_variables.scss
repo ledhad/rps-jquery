@@ -1,23 +1,37 @@
 $gamigo-primary: #fbbb21;
+$gamigo-secondary: #d36949;
 $primary-white: #fff;
 $secondary-white: rgb(238, 237, 237);
 $primary-text: #333;
 
+$primary-green: rgb(27, 228, 0);
+$primary-red: rgb(238, 0, 0);
+
 $btn-size: 70px;
 
 $min-card-width: 256px;
+$min-window-size: 320px;
 
 // Small tablets (portrait view)
 $screen-md-min: 768px;
 
 // Tablets and small desktops
-$screen-lg-min: 992px;
+$screen-lg-min: 1024px;
 
 /* Media Queries */
 
 // Medium devices
 @mixin md {
-  @media (min-width: #{$screen-md-min}) {
+  @media only screen and (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+// Portrait mode on the small to average tablets (i won't do for large tablets)
+@mixin mt {
+  @media only screen
+  and (min-device-width: #{$screen-md-min})
+  and (max-device-width: #{$screen-lg-min})
+  and (orientation: portrait) {
     @content;
   }
 }
@@ -27,4 +41,23 @@ $screen-lg-min: 992px;
   @media (min-width: #{$screen-lg-min}) {
     @content;
   }
+}
+
+//not very elaborate mixin, does not even check type passed as argument, but meh.
+@mixin zoomer($size) {
+  @keyframes vs-zoom {
+    0% {
+      background-size: $size;
+    }
+    40% {
+      background-size: $size * 1.3;
+    }
+    85% {
+      background-size: $size * 1.3;
+    }
+    100% {
+      background-size: $size;
+    }
+  }
+  animation: vs-zoom 2s normal;
 }

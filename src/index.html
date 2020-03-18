@@ -15,6 +15,21 @@
       <button class="auto-btn btn">auto</button>
     </div>
 
+    <div class="popup-screen screen-container">
+      <div class="start-screen">
+        <span class="input"
+          ><input
+            type="number"
+            min="0"
+            step="1"
+            placeholder="Enter a number"
+            value="10"
+          />
+        </span>
+        <button class="enter-btn btn">Enter</button>
+      </div>
+    </div>
+
     <div class="welcome-rules-screen screen-container--active">
       <div class="start-screen">
         <h2>Rules of the Game</h2>
@@ -35,7 +50,7 @@
 
       <div class="area-middle">
         <div class="area-middle__wrapper">
-          <h2 class="number-round"></h2>
+          <h2 class="number-round"><span class="currentRound"></span></h2>
           <div class="vs-wrapper">
             <div class="choice-p1">
               <span></span>
@@ -47,8 +62,8 @@
       </div>
 
       <div class="area-bottom">
-        <div class="points points-p2"></div>
-        <div class="points points-p1"></div>
+        <div class="points points-p2"><h3></h3></div>
+        <div class="points points-p1"><h3></h3></div>
         <div class="rps-block rock"></div>
         <div class="rps-block paper"></div>
         <div class="rps-block scissors"></div>
