@@ -113,6 +113,8 @@ export function handleRound({
   $(".set-rematch-btn").on("click", () => {
     autoReMatch = false;
     $(".start-screen").css({ height: "450px" });
+    $(".rules-btn").css("pointer-events", "none");
+    $(".auto-btn").css("pointer-events", "none");
 
     //update DOM
     initResumeBtn();
@@ -130,7 +132,7 @@ export function handleRound({
     if (!autoReMatch) {
       let promise = new Promise(res => {
         toggle(".popup-screen");
-        $(".start-screen").css({ height: "200px", "max-width": "390px" });
+        $(".start-screen").css({ height: "200px" });
         //checking for the enter key
         $(document).on("keypress", function(e) {
           if (e.which == 13) {
@@ -337,7 +339,7 @@ function messages(resultsP1, resultsP2, numberMatchUps) {
     winnerMsg =
       "Winner is: " +
       playerWinner +
-      " (points: " +
+      "<br> (points: " +
       score[0] +
       " against " +
       score[1] +

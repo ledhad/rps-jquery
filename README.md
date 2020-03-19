@@ -16,8 +16,8 @@
 
 ---
 
-<p align="center"> Few lines describing your project.
-    <br> 
+<p align="center"> Rock, Paper Scissors game implemented in Javascript.
+    <br>
 </p>
 
 ## 📝 Table of Contents
@@ -34,7 +34,8 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+I applied for a job at a company and they asked me to implemented a rock, paper, scissors game with some specitifications.
+So I worked for about 5 days on this project and implemented some solutions and even others for a good user experience.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
@@ -42,73 +43,59 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+To use this program you'll need...
 
 ```
-Give examples
+Node.js installed on your machine
+
+```
+
+You also need to get the files. Either copy or clone the repo
+
+```
+https://github.com/<notonarepoyet>.git
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
+To get the program running you must install all the dependencies :
 
 ```
-Give the example
+Type the command : "npm -i"
 ```
 
-And repeat
+Then start the project in development mode with a live server:
 
 ```
-until finished
+Type the command : "build"
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+You're good to go !
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## 🎈 Usage <a name="usage"></a>
-
-Add notes about how to use the system.
+There are no tests for this project yet. Be there me some in the future. Using jest.
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Add additional notes about how to deploy this on a live system.
+To build for deploy :
+
+```
+Type the command : "build:prod"
+```
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Webpack](https://webpack.js.org/) - Module Bundler
+- [Sass](https://sass-lang.com/) - Preprocessor Scripting Language for Styles
+- [jQuery](https://jquery.com/) - JavaScript Library for DOM manipulation
+- [Babel](https://babeljs.io/) - JavaScript Transcompiler
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
-
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
+- [@ledhad](https://github.com/ledhad) - Junior web-developer engineer
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+- Stackoverflow

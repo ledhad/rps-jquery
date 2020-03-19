@@ -27,7 +27,7 @@ $screen-lg-min: 1024px;
     @content;
   }
 }
-// Portrait mode on the small to average tablets (i won't do for large tablets)
+// Portrait mode on the small to average tablets (i won't do for large tablets like iPad pro)
 @mixin mt {
   @media only screen
   and (min-device-width: #{$screen-md-min})
