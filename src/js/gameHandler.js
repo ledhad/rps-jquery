@@ -70,8 +70,13 @@ function inputCheckValidity(input) {
   let number = parseFloat(input);
   //number input cannot be negative, a float, or too high (note : a high number could compute with time)
   if (number > 0 && Number.isInteger(number) && number < 100001) {
+    $(".enter-btn").toggleClass("btn-blur");
+    $(".input").toggleClass("input-blur");
     return true;
   }
+  //Some visual aid to indicate that the number is not good
+  $(".enter-btn").toggleClass("btn-blur");
+  $(".input").toggleClass("input-blur");
   return false;
 }
 
@@ -85,6 +90,7 @@ function requestResolver(player1, player2, rounds, numberMatchUps) {
   let inputValid = false;
   //check fo validity. returns true if valid
   inputValid = inputCheckValidity(input);
+
   if (inputValid) {
     numberMatchUps = parseInt(input);
     update(player1, player2, rounds);
@@ -130,6 +136,7 @@ export function handleRound({
   $(".start-btn").click(function() {
     //Ask the user (only once) for a specific amount of rounds to play
     if (!autoReMatch) {
+      //I know this is not well coded at all. We call requestResolver() as many times as we click or enter and create many. I did not have time to change this. But I will.
       let promise = new Promise(res => {
         toggle(".popup-screen");
         $(".start-screen").css({ height: "200px" });
