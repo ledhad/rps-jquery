@@ -70,8 +70,8 @@ function inputCheckValidity(input) {
   let number = parseFloat(input);
   //number input cannot be negative, a float, or too high (note : a high number could compute with time)
   if (number > 0 && Number.isInteger(number) && number < 100001) {
-    $(".enter-btn").toggleClass("btn-blur");
-    $(".input").toggleClass("input-blur");
+    $(".enter-btn").removeClass("btn-blur");
+    $(".input").removeClass("input-blur");
     return true;
   }
   //Some visual aid to indicate that the number is not good
