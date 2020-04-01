@@ -136,7 +136,7 @@ export function handleRound({
   $(".start-btn").click(function() {
     //Ask the user (only once) for a specific amount of rounds to play
     if (!autoReMatch) {
-      //I know this is not well coded at all. We call requestResolver() as many times as we click or enter and create many. I did not have time to change this. But I will.
+      //I know this is not well coded at all. We call requestResolver() as many times as we click or enter and create many. I did not have time to change this.
       let promise = new Promise(res => {
         toggle(".popup-screen");
         $(".start-screen").css({ height: "200px" });
@@ -203,9 +203,14 @@ export function handleRound({
     //some animations
     player1.setChoice(rpsChoice);
 
+    let choices = ["paper", "scissors", "rock"];
+    let ranInt = Math.floor(Math.random() * 3);
+    let botChoice = choices[ranInt];
+    player2.setChoice(botChoice);
+
     animationChoicePlayer1(rpsChoice);
     //no arguments here because the bot always chooses paper
-    animationChoicePlayer2(); //note : i did not refactor this time
+    animationChoicePlayer2(player2.rpsChoice); //note : i did not refactor this time
 
     //match-up
     let winner = calculate(player1, player2);
@@ -302,8 +307,8 @@ function urlAssetCreator(baseName) {
   return urlPath;
 }
 //setting some animation for the opponent's choice
-function animationChoicePlayer2() {
-  let path = urlAssetCreator("paper");
+function animationChoicePlayer2(asset) {
+  let path = urlAssetCreator(asset);
 
   $(".choice-p2")
     .toggleClass("choice-p2--active")
@@ -396,8 +401,11 @@ function autoMode(player1, player2, rounds, numberMatchUps) {
     setTimeout(() => {
       for (let i = 0; i < numberMatchUps; i++) {
         let ranInt = Math.floor(Math.random() * 3);
-        let playerChoice = choices[ranInt];
-        player1.setChoice(playerChoice);
+        let ranInt2 = Math.floor(Math.random() * 3);
+        let player1Choice = choices[ranInt];
+        let player2Choice = choices[ranInt2];
+        player1.setChoice(player1Choice);
+        player2.setChoice(player2Choice);
 
         calculate(player1, player2);
         update(player1, player2, rounds);

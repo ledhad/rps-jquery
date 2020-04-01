@@ -3,7 +3,7 @@
  <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
 </p>
 
-<h3 align="center">gamigo</h3>
+<h3 align="center">Rock Paper Scissors game with jQuery</h3>
 
 <div align="center">
 

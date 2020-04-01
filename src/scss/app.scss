@@ -5,7 +5,7 @@
 .headbar {
   width: 100vw;
   height: 55px;
-  background-color: $gamigo-primary;
+  background-color: $primary;
   position: relative;
   z-index: 2;
   overflow: hidden;
@@ -20,7 +20,6 @@
 }
 .logo {
   width: 100vw;
-  background-image: url(../../src/assets/gamigo.png);
   background-size: 210px;
   background-position: top center;
   background-repeat: no-repeat;
@@ -564,7 +563,7 @@
   z-index: 10;
   height: 2.2rem;
   width: 4rem;
-  border: 0.2em solid rgba($gamigo-primary, 0.8);
+  border: 0.2em solid rgba($primary, 0.8);
   border-radius: 2em;
   text-decoration: none;
   font-weight: 300;
@@ -594,7 +593,7 @@
     flex-wrap: wrap;
     padding: 3rem 0;
     .input {
-      background: linear-gradient(21deg, $gamigo-secondary, $gamigo-primary);
+      background: linear-gradient(21deg, $secondary, $primary);
       padding: 3px;
       display: inline-block;
       margin: 0.5rem 2rem;
